@@ -47,7 +47,11 @@ color: white;
   color: black;
   border: none;
   border-radius: 4px;
+<<<<<<< HEAD
   font-family: "Pixelify Sans", sans-serif;
+=======
+  
+>>>>>>> master
 }
 
 .myForm button:hover {
