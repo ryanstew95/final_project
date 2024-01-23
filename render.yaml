@@ -8,5 +8,5 @@ services:
 
   - name: frontend
     env: node
-    buildCommand: npm install
+    buildCommand: cd react-front-end && npm install
     startCommand: npm start
