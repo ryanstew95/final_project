@@ -25,7 +25,6 @@ app.get('/api/data', (req, res) => res.json({
 
 // questions
 app.get('/api/questions/:round', (req, res) => {
-  console.log('req.param.round', req.params.round)
   database
     .select('*')
     .from('question')
@@ -39,7 +38,7 @@ app.get('/api/questions/:round', (req, res) => {
           error: 'No questions for the given round'
         })
       }
-      // console.log(rows);
+  
       res.json({ questions: rows });
     })
     .catch(error => {
@@ -60,7 +59,7 @@ app.get('/api/high-scores', (req, res) => {
       { column: 'completiontime', order: 'asc' }
     ])
     .then(rows => {
-      console.log(rows);
+   
       res.json({ games: rows });
     })
     .catch(error => {
@@ -71,14 +70,32 @@ app.get('/api/high-scores', (req, res) => {
 
 app.post('/api/high-scores', async (req, res) => {
   const { name, score, completionTime } = req.body;
-  console.log('req body:', req.body);
+ 
   try {
     // Insert the new score into the 'game' table
     const [newScore] = await database('game').insert({ nickname: name, score, completiontime: completionTime }).returning('*');
-    console.log('New score added with ID:', newScore.id);
+   
     res.status(200).json({ success: true });
   } catch (error) {
     console.error('Error adding new score:', error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
+  }
+});
+
+app.put('/api/high-scores/:id', async (req, res) => {
+  const { id } = req.params;
+  const { nickname } = req.body;
+
+  try {
+    const updatedRows = await database('game').where({ id }).update({ nickname });
+
+    if (updatedRows > 0) {
+      res.status(200).json({ success: true });
+    } else {
+      res.status(404).json({ error: 'Nickname not found' });
+    }
+  } catch (error) {
+    console.error('Error updating nickname:', error);
     res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
@@ -106,7 +123,7 @@ app.post('/api/high-scores', async (req, res) => {
 
   app.post('/validate-nickname', (req, res) => {
     const { nickname } = req.body;
-  console.log('req.body:', req.body);
+
 
  // Trim leading and trailing whitespace
  const trimmedNickname = nickname.trim();
