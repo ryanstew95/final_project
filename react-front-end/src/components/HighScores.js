@@ -9,7 +9,7 @@ function HighScores() {
     const newNickname = 'Smartie'; // Replace with the new nickname
   
     try {
-      const response = await fetch(`http://localhost:8080/api/high-scores/${idToUpdate}`, {
+      const response = await fetch(`https://quizjs-api.onrender.com/api/high-scores/${idToUpdate}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ function HighScores() {
 
   useEffect(() => {
     // Fetch high scores from the server
-    fetch("http://localhost:8080/api/high-scores")
+    fetch("https://quizjs-api.onrender.com/api/high-scores")
       .then((response) => response.json())
       .then((data) => {
         console.log("API Response:", data);

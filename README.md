@@ -26,7 +26,7 @@
   - password: `labber` 
   - database: `quiz_app`
 4. Install dependencies on both the front and back-end: `npm i`
-5. Reset database: `node reset-database.js`
+5. Reset database: `npm run reset-db`
 6. cd into back-end folder, Run the server: `npm run go`
 7. cd into front-end folder, Run the client: `npm start`
 8. Visit http://localhost:3000/
@@ -54,7 +54,7 @@
 
 ## How to Reset the database
 
-- Use the `node reset-database.js` command in the back-end each time there is a change to the database schema or seeds. 
+- Use the `npm run reset-db` command in the back-end each time there is a change to the database schema or seeds. 
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
 

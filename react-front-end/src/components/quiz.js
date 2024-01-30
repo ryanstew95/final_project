@@ -51,7 +51,7 @@ const QuizComponent = () => {
   };
 
   const fetchQuestions = () => {
-    fetch(`http://localhost:8080/api/questions/${currentRound}`)
+    fetch(`https://quizjs-api.onrender.com/api/questions/${currentRound}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
