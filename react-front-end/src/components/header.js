@@ -4,26 +4,37 @@ import InstructionImage from "../asset/instruction.png";
 import Quiz from "../asset/THELOGO.png";
 import 'animate.css';
 import Brandon from "../asset/brandon.png";
-import SoundOn from "../asset/Sound_on.png";
-import SoundOff from "../asset/Sound_off.png";
-import { AppContext } from './AppContext';
+// import SoundOn from "../asset/Sound_on.png";
+// import SoundOff from "../asset/Sound_off.png";
+import VolumeButton from './VolumeButton';
+// import { AppContext } from './AppContext';
 import "../style/header.css";
+
+// function VolumeButton({ isMute, toggleMute }) {
+//   return (isMute) ? 
+//     <div className="mute-button-container">
+//       <img className="mute-button" src={SoundOn} alt="sound on" onClick={toggleMute} /> 
+//     </div>
+//   : <div className="mute-button-container">
+//       <img className="mute-button" src={SoundOff} alt="sound off" onClick={toggleMute} />
+//     </div>;
+// }
 
 function header(props) {
 
-  const { state, toggleMute } = useContext(AppContext)
+  // const { state, toggleMute } = useContext(AppContext)
 
-  function VolumeButton() {
-    return (state.isMute) ? 
-      <div className="mute-button-container">
-        <img className="mute-button" src={SoundOn} alt="sound on" 
-        onClick={toggleMute} /> 
-      </div>
-    : <div className="mute-button-container">
-        <img className="mute-button" src={SoundOff} alt="sound off" 
-        onClick={toggleMute} />
-      </div>
-  }
+  // function VolumeButton() {
+  //   return (state.isMute) ? 
+  //     <div className="mute-button-container">
+  //       <img className="mute-button" src={SoundOn} alt="sound on" 
+  //       onClick={toggleMute} /> 
+  //     </div>
+  //   : <div className="mute-button-container">
+  //       <img className="mute-button" src={SoundOff} alt="sound off" 
+  //       onClick={toggleMute} />
+  //     </div>
+  // }
 
   if (props.page === "home") {
     return (
@@ -49,7 +60,7 @@ function header(props) {
       <div className="top-page-container">
         <div className="top-page">
           <img src={InstructionImage} alt="instructions" className="instruction-image" />
-          <VolumeButton /> 
+         <VolumeButton />
         </div>
       </div>
     )
