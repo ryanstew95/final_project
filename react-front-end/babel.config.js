@@ -3,8 +3,21 @@ module.exports = {
     "@babel/preset-env",
     "@babel/preset-react"
   ],
-  "transform": {
-    "^.+\\.jsx?$": "babel-jest"
+  plugins: [
+    "@babel/plugin-proposal-private-property-in-object"
+
+  ],
+  env: {
+    test: {
+      presets: [
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ],
+      plugins: [
+        "@babel/plugin-proposal-private-property-in-object"
+   
+      ]
+    }
   }
-  
 };
+
