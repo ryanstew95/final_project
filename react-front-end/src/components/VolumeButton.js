@@ -1,10 +1,10 @@
-import React from 'react';
-import SoundOn from "../asset/Sound_on.png";
-import SoundOff from "../asset/Sound_off.png";
-import useVolumeControl from './useVolumeControl';
+import React from 'react'
+import SoundOn from '../asset/Sound_on.png'
+import SoundOff from '../asset/Sound_off.png'
+import useVolumeControl from './useVolumeControl'
 
-function VolumeButton() {
-  const { isMute, toggleMute } = useVolumeControl();
+function VolumeButton () {
+  const { isMute, toggleMute } = useVolumeControl()
 
   return (
     <div className="mute-button-container">
@@ -15,7 +15,7 @@ function VolumeButton() {
         onClick={toggleMute}
       />
     </div>
-  );
+  )
 }
 
-export default VolumeButton;
+export default VolumeButton

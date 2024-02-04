@@ -1,27 +1,27 @@
-import "../style/instruction.css";
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import Header from "./header";
-import { handleAudio, sounds } from "./SoundHelper";
-import { AppContext } from "./AppContext";
+import '../style/instruction.css'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Header from './header'
+import { handleAudio, sounds } from './SoundHelper'
+import { AppContext } from './AppContext'
 
-function Instruction() {
-  const navigate = useNavigate();
-  const { state } = useContext(AppContext);
+function Instruction () {
+  const navigate = useNavigate()
+  const { state } = useContext(AppContext)
 
-  function handleStartClick() {
-    navigate("/quiz");
-    handleAudio(state.isMute, sounds.click);
+  function handleStartClick () {
+    navigate('/quiz')
+    handleAudio(state.isMute, sounds.click)
   }
 
-  function handleBackClick() {
-    navigate("/");
-    handleAudio(state.isMute, sounds.click);
+  function handleBackClick () {
+    navigate('/')
+    handleAudio(state.isMute, sounds.click)
   }
 
-  function handleStartClick() {
-    navigate("/quiz");
-    handleAudio(state.isMute, sounds.click);
+  function handleStartClick () {
+    navigate('/quiz')
+    handleAudio(state.isMute, sounds.click)
   }
 
   return (
@@ -78,7 +78,7 @@ function Instruction() {
           id="start-button"
           onClick={handleBackClick}
           onMouseEnter={() => {
-            handleAudio(state.isMute, sounds.hover);
+            handleAudio(state.isMute, sounds.hover)
           }}
         >
           Go Back
@@ -88,14 +88,14 @@ function Instruction() {
           id="menu-button"
           onClick={handleStartClick}
           onMouseEnter={() => {
-            handleAudio(state.isMute, sounds.hover);
+            handleAudio(state.isMute, sounds.hover)
           }}
         >
           Play
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Instruction;
+export default Instruction

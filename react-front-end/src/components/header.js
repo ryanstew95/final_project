@@ -1,42 +1,41 @@
 import React, { useContext } from 'react'
-import "../style/App.css";
-import InstructionImage from "../asset/instruction.png";
-import Quiz from "../asset/THELOGO.png";
-import 'animate.css';
-import Brandon from "../asset/brandon.png";
+import '../style/App.css'
+import InstructionImage from '../asset/instruction.png'
+import Quiz from '../asset/THELOGO.png'
+import 'animate.css'
+import Brandon from '../asset/brandon.png'
 // import SoundOn from "../asset/Sound_on.png";
 // import SoundOff from "../asset/Sound_off.png";
-import VolumeButton from './VolumeButton';
+import VolumeButton from './VolumeButton'
 // import { AppContext } from './AppContext';
-import "../style/header.css";
+import '../style/header.css'
 
 // function VolumeButton({ isMute, toggleMute }) {
-//   return (isMute) ? 
+//   return (isMute) ?
 //     <div className="mute-button-container">
-//       <img className="mute-button" src={SoundOn} alt="sound on" onClick={toggleMute} /> 
+//       <img className="mute-button" src={SoundOn} alt="sound on" onClick={toggleMute} />
 //     </div>
 //   : <div className="mute-button-container">
 //       <img className="mute-button" src={SoundOff} alt="sound off" onClick={toggleMute} />
 //     </div>;
 // }
 
-function header(props) {
-
+function header (props) {
   // const { state, toggleMute } = useContext(AppContext)
 
   // function VolumeButton() {
-  //   return (state.isMute) ? 
+  //   return (state.isMute) ?
   //     <div className="mute-button-container">
-  //       <img className="mute-button" src={SoundOn} alt="sound on" 
-  //       onClick={toggleMute} /> 
+  //       <img className="mute-button" src={SoundOn} alt="sound on"
+  //       onClick={toggleMute} />
   //     </div>
   //   : <div className="mute-button-container">
-  //       <img className="mute-button" src={SoundOff} alt="sound off" 
+  //       <img className="mute-button" src={SoundOff} alt="sound off"
   //       onClick={toggleMute} />
   //     </div>
   // }
 
-  if (props.page === "home") {
+  if (props.page === 'home') {
     return (
     <div className="top-page-container">
       <div className="top-page">
@@ -55,7 +54,7 @@ function header(props) {
     )
   }
 
-  if (props.page === "instructions") {
+  if (props.page === 'instructions') {
     return (
       <div className="top-page-container">
         <div className="top-page">
@@ -66,7 +65,7 @@ function header(props) {
     )
   }
 
-  if (props.page === "quiz") {
+  if (props.page === 'quiz') {
     return (
       <div className="top-page-container">
         <div className="top-page">
@@ -78,26 +77,23 @@ function header(props) {
       </div>
     )
   }
-  
-  if (props.page === "congrads") {
+
+  if (props.page === 'congrads') {
     return (
       <div className="top-page">
         <div className="logo">
 
         <img className="dude" src={Brandon} alt="dude" />
           <img className="quiz" src={Quiz} alt="quizjs" />
-        
+
         </div>
       </div>
     )
-  }
-
-  else {
+  } else {
     return (
       <h1>header</h1>
     )
   }
 };
 
-
-export default header;
+export default header

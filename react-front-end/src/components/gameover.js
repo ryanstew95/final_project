@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const GameOver = () => {
   return (
@@ -8,5 +8,4 @@ const GameOver = () => {
   )
 }
 
-export default GameOver;
-
+export default GameOver

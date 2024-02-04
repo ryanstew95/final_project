@@ -7,7 +7,6 @@ import Close_003 from '../asset/sounds/Close_003.ogg'
 import Scratch_004 from '../asset/sounds/Scratch_004.ogg'
 import Select_005 from '../asset/sounds/Select_005.ogg'
 
-
 const handleAudio = (volume, sound) => {
   if (volume && sound) {
     new Audio(sound).play()
@@ -25,4 +24,4 @@ const sounds = {
   swap: Select_005
 }
 
-export { handleAudio, sounds };
+export { handleAudio, sounds }

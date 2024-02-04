@@ -1,5 +1,6 @@
 module.exports = {
-    parser: "babel-eslint",
+  "root": true,
+    parser: "@babel/eslint-parser",
     env: {
       browser: true,
       es2021: true,
@@ -17,7 +18,10 @@ module.exports = {
           ".eslintrc.{js,cjs}",
         ],
         parserOptions: {
-          sourceType: "script",
+          requireConfigFile: false,
+          babelOptions: {
+              presets: ["@babel/preset-react"],
+            },
         },
       },
     ],

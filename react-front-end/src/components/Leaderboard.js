@@ -1,7 +1,7 @@
-import React from "react";
-import data from "../data.json";
+import React from 'react'
+import data from '../data.json'
 
-function Leaderboard() {
+function Leaderboard () {
   return (
     <div className="score-box">
       <h2>High Score</h2>
@@ -17,4 +17,4 @@ function Leaderboard() {
   )
 }
 
-export default Leaderboard;
+export default Leaderboard
