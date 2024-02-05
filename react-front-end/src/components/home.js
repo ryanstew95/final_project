@@ -9,7 +9,7 @@ import { handleAudio, sounds } from './SoundHelper'
 import { AppContext } from './AppContext'
 import 'animate.css'
 import Header from './header'
-function Home() {
+function Home () {
   const [highScores, setHighScores] = useState([])
   const navigate = useNavigate()
   const { state } = useContext(AppContext)
@@ -26,11 +26,11 @@ function Home() {
       .catch((error) => console.error('Error fetching high scores:', error))
   }, [])
 
-  function handleStartClick() {
+  function handleStartClick () {
     navigate('/quiz')
     handleAudio(state.isMute, sounds.click)
   }
-  function handleInstructionsClick() {
+  function handleInstructionsClick () {
     console.log(state.isMute)
     navigate('instructions')
     handleAudio(state.isMute, sounds.click)

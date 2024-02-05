@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../style/congrads.css'
 import '../style/App.css'
@@ -168,6 +169,10 @@ const Congrats = ({ onLeaderboardUpdate }) => {
     </div>
     </div>
   )
+}
+
+Congrats.propTypes = {
+  onLeaderboardUpdate: PropTypes.func.isRequired
 }
 
 export default Congrats

@@ -9,11 +9,6 @@ function Instruction () {
   const navigate = useNavigate()
   const { state } = useContext(AppContext)
 
-  function handleStartClick () {
-    navigate('/quiz')
-    handleAudio(state.isMute, sounds.click)
-  }
-
   function handleBackClick () {
     navigate('/')
     handleAudio(state.isMute, sounds.click)

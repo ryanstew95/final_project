@@ -5,7 +5,16 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { AppProvider } from './components/AppContext'
 
-ReactDOM.render(<AppProvider><App /></AppProvider>, document.getElementById('root'))
+const rootElement = document.getElementById('root')
+const root = ReactDOM.createRoot(rootElement)
+
+root.render(
+  <React.StrictMode>
+    <AppProvider>
+      <App />
+    </AppProvider>
+  </React.StrictMode>
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

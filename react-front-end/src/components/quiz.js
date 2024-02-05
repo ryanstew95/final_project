@@ -242,7 +242,7 @@ const QuizComponent = () => {
     }
 
     if (lives === 1) {
-      const timeDifference = createFinishTime()
+      // const timeDifference = createFinishTime()
       setGameOver(true)
       navigate('/quiz')
     }

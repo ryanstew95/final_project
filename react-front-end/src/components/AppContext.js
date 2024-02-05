@@ -1,5 +1,5 @@
 import React, { useReducer, createContext } from 'react'
-
+import PropTypes from 'prop-types'
 export const ACTIONS = {
   TOGGLEMUTE: 'TOGGLEMUTE'
 }
@@ -29,5 +29,10 @@ export function AppProvider ({ children }) {
   return (
     <AppContext.Provider value={{ state, toggleMute }}>
       {children}
-    </AppContext.Provider>)
+    </AppContext.Provider>
+  )
+}
+
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired
 }
