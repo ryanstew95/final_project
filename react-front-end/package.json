@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start --host 0.0.0.0",
-    "build": "react-scripts build",
+    "build": "node --max-old-space-size=4096 react-scripts build",
     "test": "react-scripts test --verbose",
     "eject": "react-scripts eject"
   },
