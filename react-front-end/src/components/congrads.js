@@ -5,7 +5,7 @@ import '../style/congrads.css'
 import '../style/App.css'
 import 'whatwg-fetch'
 import Header from './header'
-
+import axios from 'axios'
 const Congrats = ({ onLeaderboardUpdate }) => {
   const navigate = useNavigate()
   const location = useLocation()
@@ -37,14 +37,14 @@ const Congrats = ({ onLeaderboardUpdate }) => {
   // Function to validate the nickname
   const validateNickname = async (nickname) => {
     try {
-      const response = await fetch('/validate-nickname', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nickname })
-      })
-
+      // const response = await fetch('/validate-nickname', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({ nickname }),
+      // })
+      const response = await axios('/validate-nickname', { nickname })
       // Process the server response
       const result = await response.json()
       return result
@@ -99,16 +99,20 @@ const Congrats = ({ onLeaderboardUpdate }) => {
 
     // Send data to the server
     try {
-      const response = await fetch('/api/high-scores', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name, score, completionTime }) // add completionTime here
+      // const response = await fetch('/api/high-scores', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({ name, score, completionTime }) // add completionTime here
+      // })
+      const response = await axios.post('/api/high-scores', {
+        name,
+        score,
+        completionTime
       })
-
       // Handling the server response
-      if (response.ok) {
+      if (response.data) {
         setSubmissionMessage('Your score has been submitted successfully')
         console.log('Score submitted successfully')
         // Optionally, you can update the state or perform other actions here
@@ -128,45 +132,47 @@ const Congrats = ({ onLeaderboardUpdate }) => {
 
   return (
     <div className="div-style">
-    <div className="container">
-      <div className="top">
-      <h1 className="title">Congratulations!</h1>
-      <h2 className="on">ON</h2>
-      <h2 className="completing">COMPLETING</h2>
-      <Header page="congrads" />
-      </div>
-      <div className="bottom">
-<div className="stats-box">
-        <h1>Your game stats:</h1>
-        <ul className="stats">
-          <li className="final-score">Your final score: {score}</li>
-          <li className="final-lives">Your final lives: {lives}</li>
-          <li className="final-hints">Amount of hints used: {hintCount}</li>
-          <li className="final-swap">Amount of swaps used: {swapCount}</li>
-          <li className="final-fifty">Amount of 50:50s used: {fiftyCount}</li>
-          <li className="final-skip">Amount of skips used: {skipCount}</li>
-          <li className="final-time">Completion Time: {finishTime}</li>
-        </ul>
+      <div className="container">
+        <div className="top">
+          <h1 className="title">Congratulations!</h1>
+          <h2 className="on">ON</h2>
+          <h2 className="completing">COMPLETING</h2>
+          <Header page="congrads" />
         </div>
-      <form className="myForm" onSubmit={handleSubmit}>
-        {submissionMessage && <h2>{submissionMessage}</h2>}
+        <div className="bottom">
+          <div className="stats-box">
+            <h1>Your game stats:</h1>
+            <ul className="stats">
+              <li className="final-score">Your final score: {score}</li>
+              <li className="final-lives">Your final lives: {lives}</li>
+              <li className="final-hints">Amount of hints used: {hintCount}</li>
+              <li className="final-swap">Amount of swaps used: {swapCount}</li>
+              <li className="final-fifty">
+                Amount of 50:50s used: {fiftyCount}
+              </li>
+              <li className="final-skip">Amount of skips used: {skipCount}</li>
+              <li className="final-time">Completion Time: {finishTime}</li>
+            </ul>
+          </div>
+          <form className="myForm" onSubmit={handleSubmit}>
+            {submissionMessage && <h2>{submissionMessage}</h2>}
 
-        <label className="name">
-          Enter your nickname:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {nicknameError && <p className="error">{nicknameError}</p>}
-        </label>
+            <label className="name">
+              Enter your nickname:
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              {nicknameError && <p className="error">{nicknameError}</p>}
+            </label>
 
-        <button className="submit" type="submit">
-          Submit
-        </button>
-      </form>
+            <button className="submit" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   )
 }

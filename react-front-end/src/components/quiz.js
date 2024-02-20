@@ -8,6 +8,7 @@ import Dude3 from '../asset/thinking-dude.png'
 import Header from './header'
 import { AppContext } from './AppContext'
 import { handleAudio, sounds } from './SoundHelper'
+import axios from 'axios'
 
 const QuizComponent = () => {
   const navigate = useNavigate()
@@ -51,14 +52,16 @@ const QuizComponent = () => {
   }
 
   const fetchQuestions = () => {
-    fetch(`https://quizjs-api.onrender.com/api/questions/${currentRound}`)
+    // fetch(`https://quizjs-api.onrender.com/api/questions/${currentRound}`)
+    axios.get(`/api/quesions/${currentRound}`)
+      // .then((response) => {
+      //   if (!response.ok) {
+      //     throw new Error(`HTTP error! Status: ${response.status}`)
+      //   }
+      //   return response.json()
+      // })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`)
-        }
-        return response.json()
-      })
-      .then((data) => {
+        const data = response.data
         setQuestions(data.questions)
         setTotalQuestions(data.questions.length)
         const opts = [

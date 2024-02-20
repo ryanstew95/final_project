@@ -9,6 +9,7 @@ import { handleAudio, sounds } from './SoundHelper'
 import { AppContext } from './AppContext'
 import 'animate.css'
 import Header from './header'
+import axios from 'axios'
 function Home () {
   const [highScores, setHighScores] = useState([])
   const navigate = useNavigate()
@@ -16,11 +17,12 @@ function Home () {
 
   useEffect(() => {
     // Fetch high scores from the server
-    fetch('/api/high-scores')
-      .then((response) => response.json())
-      .then((data) => {
+    // fetch('/api/high-scores')
+    axios.get('/api/high-scores')
+      // .then((response) => response.json())
+      .then((response) => {
         // Sort the high scores in descending order based on the 'score' property
-        const sortedHighScores = data.games.sort((a, b) => b.score - a.score)
+        const sortedHighScores = response.data.games.sort((a, b) => b.score - a.score)
         setHighScores(sortedHighScores)
       })
       .catch((error) => console.error('Error fetching high scores:', error))

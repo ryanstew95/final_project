@@ -1,6 +1,7 @@
 // highscores.js
 import React, { useState, useEffect } from 'react'
 import '../style/home.css'
+import axios from 'axios'
 function HighScores () {
   const [highScores, setHighScores] = useState([])
 
@@ -9,20 +10,21 @@ function HighScores () {
     const newNickname = 'Smartie' // Replace with the new nickname
 
     try {
-      const response = await fetch(`https://quizjs-api.onrender.com/api/high-scores/${idToUpdate}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nickname: newNickname })
+      // const response = await fetch(`https://quizjs-api.onrender.com/api/high-scores/${idToUpdate}`, {
+      //   method: 'PUT',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({ nickname: newNickname })
+      // })
+
+      // const data = await response.json()
+      const response = await axios.put(`/api/high-scores/${idToUpdate}`, {
+        nickname: newNickname
       })
 
-      const data = await response.json()
-
-      if (response.ok) {
+      if (response.data) {
         console.log('Nickname updated successfully')
-      } else {
-        console.error('Error updating nickname:', data.error)
       }
     } catch (error) {
       console.error('Error updating nickname:', error)
@@ -33,13 +35,14 @@ function HighScores () {
 
   useEffect(() => {
     // Fetch high scores from the server
-    fetch('https://quizjs-api.onrender.com/api/high-scores')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('API Response:', data)
+    // fetch('https://quizjs-api.onrender.com/api/high-scores')
+    axios.get('/api/high-scores')
+      // .then((response) => response.json())
+      .then((response) => {
+        console.log('API Response:', response)
 
         // Filter out entries with null names
-        const filteredHighScores = data.games.filter(
+        const filteredHighScores = response.data.games.filter(
           (score) => score.nickname !== null
         )
 
