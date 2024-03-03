@@ -1,9 +1,10 @@
 // highscores.js
-import React, { useState, useEffect } from 'react'
-import '../style/home.css'
+import React, { useState, useEffect } from "react";
+import "../style/home.css";
 import axios from 'axios'
-function HighScores () {
-  const [highScores, setHighScores] = useState([])
+
+function HighScores() {
+  const [highScores, setHighScores] = useState([]);
 
   const updateNickname = async () => {
     const idToUpdate = 16 // Replace with the actual ID you want to update
@@ -32,6 +33,7 @@ function HighScores () {
   }
 
   updateNickname()
+  
 
   useEffect(() => {
     // Fetch high scores from the server
