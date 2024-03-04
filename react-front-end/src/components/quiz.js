@@ -1,13 +1,13 @@
 // quiz.js
-import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import "../style/quiz.css";
-import Dude from "../asset/dude.png";
-import Dude2 from "../asset/thumbs-down.png";
-import Dude3 from "../asset/thinking-dude.png";
-import Header from "./header";
-import { AppContext } from "./AppContext";
-import { handleAudio, sounds } from "./SoundHelper";
+import React, { useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../style/quiz.css'
+import Dude from '../asset/dude.png'
+import Dude2 from '../asset/thumbs-down.png'
+import Dude3 from '../asset/thinking-dude.png'
+import Header from './header'
+import { AppContext } from './AppContext'
+import { handleAudio, sounds } from './SoundHelper'
 import axios from 'axios'
 
 const QuizComponent = () => {
@@ -42,8 +42,7 @@ const QuizComponent = () => {
   const [timer, setTimer] = useState(timerDuration)
   const [finishQuiz, setFinishQuiz] = useState(false)
 
-  const [finishTime, setFinishTime] = useState('');
-
+  const [finishTime, setFinishTime] = useState('')
 
   const optionLabel = {
     0: 'A',
@@ -91,14 +90,12 @@ const QuizComponent = () => {
   useEffect(() => {
     const timerInterval = setInterval(() => {
       if (timer > 0) {
-        setTimer(timer - 1);
-     } else {
-        setTimer(0); // Set timer to zero instead of going negative
-        setGameOver(true);
-     }
-     
-    }, 1000);
-
+        setTimer(timer - 1)
+      } else {
+        setTimer(0) // Set timer to zero instead of going negative
+        setGameOver(true)
+      }
+    }, 1000)
     return () => clearInterval(timerInterval)
   }, [timer])
 

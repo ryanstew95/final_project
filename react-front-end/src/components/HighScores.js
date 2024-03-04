@@ -3,18 +3,15 @@ import React, { useState, useEffect } from 'react'
 import '../style/home.css'
 import axios from 'axios'
 
-function HighScores() {
+function HighScores () {
   const [highScores, setHighScores] = useState([])
-
   const updateNickname = async () => {
     const idToUpdate = 16 // Replace with the actual ID you want to update
     const newNickname = 'Smartie' // Replace with the new nickname
-
     try {
       const response = await axios.put(`/api/high-scores/${idToUpdate}`, {
         nickname: newNickname
       })
-
       if (response.data) {
         console.log('Nickname updated successfully')
       }
@@ -22,7 +19,6 @@ function HighScores() {
       console.error('Error updating nickname:', error)
     }
   }
-
   updateNickname()
 
   useEffect(() => {
