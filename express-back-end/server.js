@@ -7,9 +7,7 @@ const config = require('./knexfile')[process.env.NODE_ENV || 'development'];
 const database = knex(config);
 const cors = require("cors");
 
-// Allow requests from your Netlify frontend
-app.use(cors({ origin: 'https://gorgeous-donut-33d88d.netlify.app/' }));
-
+app.use(cors({ origin: '*' }));
 
 const PORT = 8080;
 
