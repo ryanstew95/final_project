@@ -8,7 +8,7 @@ const database = knex(config);
 const cors = require("cors");
 
 // Allow requests from your Netlify frontend
-app.use(cors({ origin: 'https://quizjs-api.onrender.com/' }));
+app.use(cors({ origin: 'https://gorgeous-donut-33d88d.netlify.app/' }));
 
 
 const PORT = 8080;
