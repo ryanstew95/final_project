@@ -37,17 +37,15 @@ const Congrats = ({ onLeaderboardUpdate }) => {
   // Function to validate the nickname
   const validateNickname = async (nickname) => {
     try {
-      const response = await axios.post('/validate-nickname', { nickname });
+      const response = await axios.post('/validate-nickname', { nickname })
       // Process the server response
-      const result = response.data;
-      return result;
+      const result = response.data
+      return result
     } catch (error) {
-      console.error('Error validating nickname:', error);
-      return { success: false, error: 'Failed to validate nickname' };
+      console.error('Error validating nickname:', error)
+      return { success: false, error: 'Failed to validate nickname' }
     }
   }
-  
-
   // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault()
