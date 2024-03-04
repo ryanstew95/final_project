@@ -1,25 +1,16 @@
 // highscores.js
-import React, { useState, useEffect } from "react";
-import "../style/home.css";
+import React, { useState, useEffect } from 'react'
+import '../style/home.css'
 import axios from 'axios'
 
 function HighScores() {
-  const [highScores, setHighScores] = useState([]);
+  const [highScores, setHighScores] = useState([])
 
   const updateNickname = async () => {
     const idToUpdate = 16 // Replace with the actual ID you want to update
     const newNickname = 'Smartie' // Replace with the new nickname
 
     try {
-      // const response = await fetch(`https://quizjs-api.onrender.com/api/high-scores/${idToUpdate}`, {
-      //   method: 'PUT',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify({ nickname: newNickname })
-      // })
-
-      // const data = await response.json()
       const response = await axios.put(`/api/high-scores/${idToUpdate}`, {
         nickname: newNickname
       })
@@ -33,13 +24,11 @@ function HighScores() {
   }
 
   updateNickname()
-  
 
   useEffect(() => {
     // Fetch high scores from the server
-    // fetch('https://quizjs-api.onrender.com/api/high-scores')
-    axios.get('/api/high-scores')
-      // .then((response) => response.json())
+    axios
+      .get('/api/high-scores')
       .then((response) => {
         console.log('API Response:', response)
 
