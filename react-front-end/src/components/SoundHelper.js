@@ -9,18 +9,17 @@ import select005 from '../asset/sounds/Select_005.ogg'
 
 const handleAudio = (volume, sound) => {
   if (volume && sound) {
-    const audio = new Audio(sound);
+    const audio = new Audio(sound)
     const playAudio = () => {
-      audio.play();
+      audio.play()
       // Optionally, you can remove the event listener after the first play
-      document.removeEventListener('click', playAudio);
-    };
+      document.removeEventListener('click', playAudio)
+    }
 
     // Attach a click event listener to the document
-    document.addEventListener('click', playAudio);
+    document.addEventListener('click', playAudio)
   }
-};
-
+}
 
 const sounds = {
   click: switch004,
