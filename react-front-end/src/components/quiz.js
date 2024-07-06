@@ -355,7 +355,7 @@ const QuizComponent = () => {
           <h1>Game Over!</h1>
           <div className="game-over-buttons">
             <div>Final Score: {score}</div>
-            <p>Time taken to complete the quiz: {formatTime()}</p>
+        
             <div>Total hints used: {hintCount}</div>
             <div>Total swap used: {swapCount}</div>
             <div>Total 50:50 used: {fiftyCount}</div>
