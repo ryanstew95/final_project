@@ -9,7 +9,7 @@ import SoundOff from "../asset/Sound_off.png";
 import { AppContext } from './AppContext';
 import "../style/header.css";
 
-function header(props) {
+function Header(props) {
 
   const { state, toggleMute } = useContext(AppContext)
 
@@ -83,10 +83,10 @@ function header(props) {
 
   else {
     return (
-      <h1>header</h1>
+      <h1>Header</h1>
     )
   }
 };
 
 
-export default header;
+export default Header;
