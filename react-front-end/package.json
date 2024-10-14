@@ -7,8 +7,13 @@
     "animate.css": "^4.1.1",
     "axios": "^0.18.1",
     "postcss-normalize": "^10.0.1",
+<<<<<<< HEAD
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+=======
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+>>>>>>> f558557e (fixing main branch)
     "react-router-dom": "^6.17.0",
     "react-scripts": "^5.0.1",
     "sanitize.css": "^13.0.0"

@@ -1,3 +1,7 @@
+import App from './App'
+import './style/index.css'
+import axios from 'axios'
+import { AppProvider } from './components/AppContext'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './style/index.css'
